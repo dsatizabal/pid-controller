@@ -30,9 +30,9 @@ module tb ();
       `endif
       .clk    (clk),      // clock
       .rst_n  (rst_n),     // not reset
-      .setpoint (setpoint),
-      .feedback (feedback),
-      .control_signal (control_signal)
+      .ui_in (setpoint),
+      .uio_in (feedback),
+      .uo_out (control_signal)
   );
 
 endmodule

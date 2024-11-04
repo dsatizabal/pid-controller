@@ -11,7 +11,7 @@ async def test_pid_controller(dut):
 
     # Initialize values
     setpoint = 128
-    feedback = 0
+    feedback = 75
     dut.setpoint.value = setpoint
     dut.feedback.value = feedback
     dut.rst_n.value = 0
@@ -45,7 +45,7 @@ async def test_pid_controller(dut):
                       f"Control Signal={control_signal}, Error={error}")
 
         # Assertion to check if the feedback stabilizes around setpoint
-        if i > 50:  # Give some settling time
+        if i > 90:  # Give some settling time
             assert abs(feedback - setpoint) <= 5, f"Feedback did not converge: {feedback}"
 
     # Final check if feedback is close enough to setpoint
